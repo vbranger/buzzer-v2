@@ -22,9 +22,9 @@ class GamesController < ApplicationController
   # POST /games
   def create
     @game = Game.new(game_params)
-
+    @game.system = @system
     if @game.save
-      redirect_to @game, notice: "Game was successfully created."
+      redirect_to games_path, notice: "Game was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

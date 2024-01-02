@@ -1,3 +1,4 @@
+<%= turbo_stream_from @game %>
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
     <% if notice.present? %>
@@ -5,6 +6,7 @@
     <% end %>
 
     <%= render @game %>
+    <%= render partial: "buzzer", locals: { game: @game }  %>
 
     <%= link_to "Edit this game", edit_game_path(@game), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
