@@ -10,12 +10,12 @@ class Project < ApplicationRecord
     # binding.pry
   end
 
-  validate :validate_unique_task_description
+  # validate :validate_unique_task_description
 
-  def validate_unique_task_description
-    validate_uniqueness_of_in_memory(
-      tasks, [:description, :project_id], 'Task already exists'
-    )
-  end
+  # def validate_unique_task_description
+  #   validate_uniqueness_of_in_memory(
+  #     tasks, [:description, :project_id], 'Task already exists'
+  #   )
+  # end
   
 end

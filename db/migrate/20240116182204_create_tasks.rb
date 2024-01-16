@@ -7,5 +7,6 @@ class CreateTasks < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+    add_index :tasks, [:description, :project_id], unique: true
   end
 end

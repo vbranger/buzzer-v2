@@ -100,6 +100,8 @@ GEM
     crass (1.0.6)
     css_parser (1.16.0)
       addressable
+    database_validations (1.1.1)
+      activerecord (>= 4.2.0)
     date (3.3.4)
     debug (1.9.1)
       irb (~> 1.10)
@@ -287,6 +289,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cocoon
+  database_validations
   debug
   importmap-rails
   jquery-rails

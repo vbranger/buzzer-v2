@@ -24,12 +24,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    binding.pry
     if @project.save
-      binding.pry
       redirect_to @project, notice: "Project was successfully created."
     else
-      binding.pry
       render :new, status: :unprocessable_entity
     end
   end

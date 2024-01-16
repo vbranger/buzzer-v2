@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_16_182204) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["description", "project_id"], name: "index_tasks_on_description_and_project_id", unique: true
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
