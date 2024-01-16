@@ -21,10 +21,9 @@ class GamesController < ApplicationController
 
   # POST /games
   def create
-    @game = Game.new(game_params)
-    @game.system = @system
+    @game = @system.games.build(game_params)
     if @game.save
-      redirect_to games_path, notice: "Game was successfully created."
+      redirect_to games_path, xnotice: "Game was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +32,7 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   def update
     if @game.update(game_params)
-      redirect_to @game, notice: "Game was successfully updated.", status: :see_other
+      redirect_to @game, xnotice: "Game was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,13 +41,13 @@ class GamesController < ApplicationController
   # DELETE /games/1
   def destroy
     @game.destroy!
-    redirect_to games_url, notice: "Game was successfully destroyed.", status: :see_other
+    redirect_to games_url, xnotice: "Game was successfully destroyed.", status: :see_other
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params[:id])
+      @game = @system.games.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
