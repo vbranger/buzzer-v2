@@ -1,10 +1,14 @@
 class ButtonComponentPreview < Lookbook::Preview
   # scenarios defined here
   def standard
-    render ButtonComponent.new(text: "Click me")
+    render ButtonComponent.new(scheme: "primary") do
+      "Modifier"
+    end
   end
 
-  def alternate
-    render ButtonComponent.new(text: "Click me 2")
+  def secondary
+    render ButtonComponent.new(scheme: "secondary") do
+      "Modifier"
+    end
   end
 end

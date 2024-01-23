@@ -11,8 +11,20 @@
   .field_with_errors {
     @apply border-2 border-rose-500;
   }
+
+  .btn-outline-secondary {
+    @apply font-bold py-1 px-4 min-w-44 rounded border-double border-3 border-transparent bg-gradient-outline-secondary bg-origin-border bg-clip-test text-alt-secondary;
+  }
 }
 
 .field_with_errors {
   border: 2px solid #f56565;
+}
+
+.bg-clip-test {
+  background-clip: padding-box, border-box;
+}
+
+.btn-outline-secondary {
+  @apply font-bold py-1 px-4 min-w-44 rounded border-double border-3 border-transparent bg-gradient-outline-secondary bg-origin-border bg-clip-test text-alt-secondary;
 }

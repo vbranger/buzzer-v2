@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ButtonComponent < ViewComponent::Base
-  def initialize(text:)
-    @text = text
+  def initialize(scheme:)
+    @scheme = scheme
   end
 end
  
