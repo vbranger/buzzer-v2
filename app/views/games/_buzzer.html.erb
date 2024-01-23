@@ -1,4 +1,4 @@
-<% state_color = game.state == "ready" ? "bg-green-600" : "bg-red-600" %>
+<% state_color = game.state == "ready" ? "bg-green-500" : "bg-red-500" %>
 <% state_toggle = game.state == "ready" ? "buzzed" : "ready" %>
 <div class="py-24 flex items-center justify-center space-x-8">
   <%= button_to "", game_path(game), method: :patch, params: { game: { state: state_toggle }}, class: "w-36 h-36 #{state_color} rounded-full" %>
