@@ -1,0 +1,9 @@
+<button data-action="click->sidebar#toggle"
+  class="p-2 transition-colors rounded-lg shadow-md hover:bg-indigo-800 hover:text-white focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-white focus:ring-offset-2"
+  data-open-class="text-white bg-indigo-600"
+  data-closed-class="text-gray-500 bg-white"
+  data-tab-name="<%= @title %>"
+  >
+  <span class="sr-only">Toggle sidebar</span>
+  <%= render partial: @icon %>
+</button>

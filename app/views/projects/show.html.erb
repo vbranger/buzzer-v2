@@ -1,15 +1,29 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @project %>
-
-    <%= link_to "Edit this project", edit_project_path(@project), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this project", project_path(@project), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to "Back to projects", projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
+  <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light"
+    data-controller="sidebar"
+    data-sidebar-is-open-value="false">
+    <%= render LoadingScreenComponent.new %>
+    <%= render SidebarComponent.new %>
+    <%= render SubHeaderComponent.new %>
+    <%= render ContentComponent.new %>
   </div>
+  <%= render BackdropComponent.new  %>  <!-- used to set background as dark when left panel is opened -->
+  <%= render PanelComponent.new %> <!-- left panel -->
+  <%= render BottomRightComponent.new %> <!-- element at bottom right of the screen -->
 </div>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+<script>
+  const setup = () => {
+      return {
+      isSidebarOpen: false,
+      currentSidebarTab: null,
+      isSettingsPanelOpen: false,
+      isSubHeaderOpen: false,
+      watchScreen() {
+          if (window.innerWidth <= 1024) {
+          this.isSidebarOpen = false
+          }
+      },
+  }
+    }
+</script>

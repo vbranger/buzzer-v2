@@ -1,0 +1,118 @@
+  <!--  Subheader component-->
+  <div
+        x-transition:enter="transform transition-transform duration-300"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transform transition-transform duration-300"
+        x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="-translate-x-full"
+        data-sidebar-target="subheader"
+        class="fixed hidden inset-y-0 left-0 z-10 flex-shrink-0 w-64 bg-white border-r-2 border-indigo-100 shadow-lg sm:left-16 rounded-tr-3xl rounded-br-3xl sm:w-72 lg:static lg:w-64"
+      >
+        <nav x-show="currentSidebarTab == 'linksTab'" aria-label="Main" class="flex flex-col h-full">
+          <!-- Logo -->
+          <div class="flex items-center justify-center flex-shrink-0 py-10">
+            <a href="#">
+              <!-- <svg
+                class="text-indigo-600"
+                width="96"
+                height="53"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7.691 34.703L13.95 28.2 32.09 52h8.087L18.449 23.418 38.594.813h-8.157L7.692 26.125V.812H.941V52h6.75V34.703zm27.61-7.793h17.156v-5.308H35.301v5.308zM89.19 13v22.512c0 3.703-1.02 6.574-3.058 8.613-2.016 2.04-4.934 3.059-8.754 3.059-3.773 0-6.68-1.02-8.719-3.059-2.039-2.063-3.058-4.945-3.058-8.648V.813h-6.68v34.874c.047 5.297 1.734 9.458 5.062 12.481 3.328 3.023 7.793 4.535 13.395 4.535l1.793-.07c5.156-.375 9.234-2.098 12.234-5.168 3.024-3.07 4.547-7.02 4.57-11.848V13h-6.785zM89 8h7V1h-7v7z"
+                />
+              </svg> -->
+              <img
+                class="w-24 h-auto"
+                src="https://raw.githubusercontent.com/kamona-ui/dashboard-alpine/main/public/assets/images/logo.png"
+                alt="K-UI"
+              />
+            </a>
+          </div>
+
+          <!-- Links -->
+          <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
+            <a href="#" class="flex items-center w-full space-x-2 text-white bg-indigo-600 rounded-lg">
+              <span aria-hidden="true" class="p-2 bg-indigo-700 rounded-lg">
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  />
+                </svg>
+              </span>
+              <span>Home</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center space-x-2 text-indigo-600 transition-colors rounded-lg group hover:bg-indigo-600 hover:text-white"
+            >
+              <span
+                aria-hidden="true"
+                class="p-2 transition-colors rounded-lg group-hover:bg-indigo-700 group-hover:text-white"
+              >
+                <svg
+                  class="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
+                </svg>
+              </span>
+              <span>Pages</span>
+            </a>
+          </div>
+
+          <div class="flex-shrink-0 p-4 mt-10">
+            <div class="hidden p-2 space-y-6 bg-gray-100 rounded-lg md:block">
+              <img
+                aria-hidden="true"
+                class="-mt-10"
+                src="https://raw.githubusercontent.com/kamona-ui/dashboard-alpine/52b4b4abb92ef251f6610be416038b48209d7a81/public/assets/images/undraw_web_developer_p3e5.svg"
+              />
+              <p class="text-sm text-indigo-600">
+                Use our <span class="text-base text-indigo-700er">Premium</span> features now! <br />
+              </p>
+              <button
+                class="w-full px-4 py-2 text-center text-white transition-colors bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-gray-100"
+              >
+                Upgrade to pro
+              </button>
+            </div>
+
+            <button
+              class="w-full px-4 py-2 text-center text-white transition-colors bg-indigo-600 rounded-lg md:hidden hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-gray-100"
+            >
+              Upgrade to pro
+            </button>
+          </div>
+        </nav>
+
+        <section x-show="currentSidebarTab == 'messagesTab'" class="px-4 py-6">
+          <h2 class="text-xl">Messages</h2>
+        </section>
+
+        <section x-show="currentSidebarTab == 'notificationsTab'" class="px-4 py-6">
+          <h2 class="text-xl">Notifications</h2>
+        </section>
+      </div>
+    
