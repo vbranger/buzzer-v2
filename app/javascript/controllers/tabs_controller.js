@@ -15,7 +15,7 @@ export default class extends Controller {
         let selectedTab = this.tabTargets.find(element => element.id === this.defaultTabValue)
         selectedTab.hidden = false
         // replace url based on current tab src
-        history.replaceState(null, "", selectedTab.src)
+        // history.replaceState(null, "", selectedTab.src)
         // add src attribute (somehow diff from above) so the frame can be reloaded later
         selectedTab.setAttribute('src', window.location.pathname)
         // and activate the selected button
@@ -40,7 +40,7 @@ export default class extends Controller {
             // reload the frame even if it was previously load so it can be refreshed
             selectedTab.reload();
             // update url
-            history.replaceState(null, "", selectedTab.src )
+            history.pushState(null, "", selectedTab.src )
             // debugger;
             event.currentTarget.classList.add(...this.activeClasses) // activate current button
         }
