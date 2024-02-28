@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
   root "games#index"
+  get "sidebar/a", to: "sidebar#a"
+  get "sidebar/b", to: "sidebar#b"
+  get "sidebar/c", to: "sidebar#c"
 end

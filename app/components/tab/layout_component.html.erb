@@ -1,0 +1,22 @@
+<div
+  data-controller="tabs"
+  data-tabs-active-class="bg-gray-900 text-gray-100"
+  data-tabs-default-tab-value="<%= @active %>"
+>
+  <!-- buttons to toggle between tabs -->
+  <%= render Tab::ButtonsComponent.new %>
+  <!-- the tabs -->
+  <div class="rounded-lg border">
+    <% @tabs.each do |tab| %>
+      <% if tab[:name] == @active %>
+        <%= turbo_frame_tag tab[:name], data: { tabs_target: "tab" }, refresh: :morph, loading: :lazy do %>
+          <%= content %>
+        <% end %>
+      <% else %>
+        <%= turbo_frame_tag tab[:name], src: tab[:src], data: { tabs_target: "tab" }, class:"hidden", refresh: :morph, loading: :lazy do %>
+          <p>loading</p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
